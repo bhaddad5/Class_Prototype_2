@@ -11,7 +11,7 @@ var Stage = function() {
     fragmentShader: fragmentShaderText
   });
   this.stageMesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(600, 600),
+      new THREE.PlaneGeometry(500, 500),
       this.myMaterial);
 	  
   this.stageMesh.rotation.x = -0.5;
