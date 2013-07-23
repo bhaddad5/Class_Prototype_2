@@ -21,6 +21,10 @@ Game.prototype.init = function() {
   //Creates the stage  
   this.stage = new Stage();
   this.scene.add(this.stage.stageMesh);
+  
+  //Creates the stage  
+  this.backWall = new BackWall();
+  this.scene.add(this.backWall.backWallMesh);
 
   //Creates the background
   this.background = new Background();
@@ -40,6 +44,7 @@ Game.prototype.init = function() {
 Game.prototype.render = function(t) {
   this.stage.updateTime(t);
   this.background.updateTime(t);
+  this.backWall.updateTime(t);
   this.camera.lookAt(this.scene.position);
   this.renderer.render(this.scene, this.camera);
 };
