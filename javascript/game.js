@@ -29,6 +29,10 @@ Game.prototype.init = function() {
   //Creates the left wall  
   this.leftWall = new LeftWall();
   this.scene.add(this.leftWall.leftWallMesh);
+  
+  //Creates the right wall  
+  this.rightWall = new RightWall();
+  this.scene.add(this.rightWall.rightWallMesh);
 
   //Creates the background
   this.background = new Background();
@@ -50,6 +54,7 @@ Game.prototype.render = function(t) {
   this.background.updateTime(t);
   this.backWall.updateTime(t);
   this.leftWall.updateTime(t);
+  this.rightWall.updateTime(t);
   this.camera.lookAt(this.scene.position);
   this.renderer.render(this.scene, this.camera);
 };
