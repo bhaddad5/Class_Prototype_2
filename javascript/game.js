@@ -34,6 +34,9 @@ Game.prototype.init = function() {
   this.camera = new THREE.PerspectiveCamera(75, 4.0/3.0, 1, 10000);
   this.camera.position.y = -200;
   this.camera.position.z = 500;
+  
+  //Creates the beat  
+  this.beat = new Beat(50);
 
   //Creates the stage  
   this.stage = new Stage();
@@ -110,13 +113,13 @@ Game.prototype.handleInput = function() {
  * Render game view for time t
  */
 Game.prototype.render = function(t) {
-  this.stage.updateTime(t);
-  this.background.updateTime(t);
-  this.backWall.updateTime(t);
-  this.leftWall.updateTime(t);
-  this.rightWall.updateTime(t);
-  this.leftSpeaker.updateTime(t);
-  this.rightSpeaker.updateTime(t);
+  this.beat.updateTime(this.stage, t);
+  this.beat.updateTime(this.background, t);
+  this.beat.updateTime(this.backWall, t);
+  this.beat.updateTime(this.leftWall, t);
+  this.beat.updateTime(this.rightWall, t);
+  this.beat.updateTime(this.leftSpeaker, t);
+  this.beat.updateTime(this.rightSpeaker, t);
   this.bouncer.updateTime(t);
   this.camera.lookAt(this.scene.position);
   this.renderer.render(this.scene, this.camera);
