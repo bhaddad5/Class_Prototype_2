@@ -37,6 +37,10 @@ Game.prototype.init = function() {
   //Creates the left speaker  
   this.leftSpeaker = new LeftSpeaker();
   this.scene.add(this.leftSpeaker.leftSpeakerMesh);
+  
+  //Creates the right speaker  
+  this.rightSpeaker = new RightSpeaker();
+  this.scene.add(this.rightSpeaker.rightSpeakerMesh);
 
   //Creates the background
   this.background = new Background();
@@ -70,6 +74,7 @@ Game.prototype.render = function(t) {
   this.leftWall.updateTime(t);
   this.rightWall.updateTime(t);
   this.leftSpeaker.updateTime(t);
+  this.rightSpeaker.updateTime(t);
   this.bouncer.updateTime(t);
   this.camera.lookAt(this.scene.position);
   this.renderer.render(this.scene, this.camera);
