@@ -48,6 +48,11 @@ Game.prototype.init = function() {
   this.renderer.setSize(800, 600);
   this.renderer.setClearColor(0xeeeeee, 1.0);
   document.body.appendChild(this.renderer.domElement);
+  
+  //This creates and adds the light
+  this.light2 = new THREE.PointLight(0xffcccc, 1, 10000);
+  this.light2.position.set(0, 300, 600);
+  this.scene.add(this.light2);
 
 };
 
