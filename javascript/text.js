@@ -1,26 +1,28 @@
-var Text = function() {
+var Text = function(beats) {
   
   //This adds the text.  I borrowed the template from Imari Heikkinen
-  var c = document.createElement('canvas');
-  c.getContext('2d').font = '50px Arial';
-  c.getContext('2d').fillText(0 + '/234', 2, 100);
+  this.c = document.createElement('canvas');
+  this.c.getContext('2d').font = '80px Arial';
+  this.c.getContext('2d').fillText(beats + '/688', 2, 100);
   
-  var tex = new THREE.Texture(c);
-  tex.needsUpdate = true;
+  this.tex = new THREE.Texture(this.c);
+  this.tex.needsUpdate = true;
       
-  var mat = new THREE.MeshBasicMaterial({map: tex});
-  mat.transparent = true;
+  this.mat = new THREE.MeshBasicMaterial({map: this.tex});
+  this.mat.transparent = true;
 
   this.textMesh = new THREE.Mesh(
     new THREE.PlaneGeometry(500, 200),
-    mat
+    this.mat
   );
   this.textMesh.doubleSided = true;
   
-  this.textMesh.translateY(-250);
+  this.textMesh.translateY(-290);
+  this.textMesh.translateX(100);
 
 };
 
-Text.prototype.updateTime = function(t){
-  
+Text.prototype.updateBeats = function(beats){
+  console.log("update");
+  this.c.getContext('2d').fillText(0 + '/688', 2, 100);
 };

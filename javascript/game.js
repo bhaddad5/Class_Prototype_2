@@ -5,12 +5,19 @@
 var Game = function() {
 };
 
+  //BPM = 50.5
+  //length = 4.63 minutes
+  //total beats = 234
+
 //CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE
 //This creates the keyboard
 var keyboard = new THREEx.KeyboardState();
 
 //This tracks whether the spacebar is down
 var keyDown = false;
+
+//This tracks the number of beats hit
+var beatsHit = 0;
 
 /**
  * Initialize game state
@@ -62,7 +69,7 @@ Game.prototype.init = function() {
   this.scene.add(this.bouncer.head);
   
   //Creates the text
-  this.text = new Text();
+  this.text = new Text(beatsHit);
   this.scene.add(this.text.textMesh);
 
   //Renders the scene
@@ -85,8 +92,11 @@ Game.prototype.handleInput = function() {
 
   //This detects that the key has been pressed
   if(keyboard.pressed("space") && keyDown == false) {
-    console.log("space");
+    beatsHit++;
 	keyDown = true;
+	this.scene.remove(this.text.textMesh);
+	this.text = new Text(beatsHit);
+    this.scene.add(this.text.textMesh);
   }
   
   //This detects that the key has no longer been pressed
