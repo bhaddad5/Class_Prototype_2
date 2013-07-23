@@ -11,14 +11,14 @@ var LeftWall = function() {
     fragmentShader: fragmentShaderText
   });
   this.leftWallMesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(500, 500),
+      new THREE.PlaneGeometry(400, 400),
       this.myMaterial);
 	  
-  this.leftWallMesh.rotation.x = 0.5;
-  this.leftWallMesh.rotation.y = 1.5;
-  this.leftWallMesh.rotation.z = 0.3;
-  this.leftWallMesh.translateZ(-200);
-  this.leftWallMesh.translateX(-150);
+  this.leftWallMesh.rotation.x = 0.6;
+  this.leftWallMesh.rotation.y = 1.6;
+  this.leftWallMesh.rotation.z = 0.4;
+  this.leftWallMesh.translateZ(-240);
+  this.leftWallMesh.translateX(-50);
   this.leftWallMesh.translateY(200);
 
 

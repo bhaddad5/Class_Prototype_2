@@ -11,7 +11,7 @@ var BackWall = function() {
     fragmentShader: fragmentShaderText
   });
   this.backWallMesh = new THREE.Mesh(
-      new THREE.PlaneGeometry(500, 500),
+      new THREE.PlaneGeometry(550, 550),
       this.myMaterial);
 	  
   this.backWallMesh.rotation.x = 0.5;
