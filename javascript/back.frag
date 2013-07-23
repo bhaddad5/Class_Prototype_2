@@ -10,5 +10,5 @@ void main() {
   float ang = atan(vUv.y, vUv.x);
   float dist = length(vUv) * -sin(uTime * 3.0) * 20.0;
   float t = ang * DENSITY + uTime * SPEED;
-  gl_FragColor = vec4(0.0, 0.0, abs(sin(t + dist)), 1.0);
+  gl_FragColor = vec4(0.0, abs(sin(t + dist)), 0.0, 1.0);
 }
