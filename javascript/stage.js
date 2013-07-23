@@ -13,6 +13,8 @@ var Stage = function() {
   this.stageMesh = new THREE.Mesh(
       new THREE.PlaneGeometry(600, 600),
       this.myMaterial);
+	  
+  this.stageMesh.rotation.x = -0.5;
 
 
 };
