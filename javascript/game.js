@@ -5,6 +5,13 @@
 var Game = function() {
 };
 
+//CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE CHANGE
+//This creates the keyboard
+var keyboard = new THREEx.KeyboardState();
+
+//This tracks whether the spacebar is down
+var keyDown = false;
+
 /**
  * Initialize game state
  */
@@ -68,6 +75,24 @@ Game.prototype.init = function() {
 };
 
 /**
+ * Handles keyboard input
+ */
+Game.prototype.handleInput = function() {
+
+  //This detects that the key has been pressed
+  if(keyboard.pressed("space") && keyDown == false) {
+    console.log("space");
+	keyDown = true;
+  }
+  
+  //This detects that the key has no longer been pressed
+  if(!keyboard.pressed("space") && keyDown == true) {
+	keyDown = false;
+  }
+
+}
+
+/**
  * Render game view for time t
  */
 Game.prototype.render = function(t) {
@@ -91,6 +116,7 @@ Game.prototype.start = function() {
   var time0 = new Date().getTime(); // milliseconds since 1970
   var loop = function() {
     var time = new Date().getTime();
+	that.handleInput();
     that.render((time - time0) * 0.001);
     requestAnimationFrame(loop, that.renderer.domElement);
   };
