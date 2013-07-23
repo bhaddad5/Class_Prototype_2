@@ -37,6 +37,11 @@ Game.prototype.init = function() {
   //Creates the background
   this.background = new Background();
   this.scene.add(this.background.myMesh);
+  
+  //Creates the bouncer
+  this.bouncer = new Bouncer();
+  this.scene.add(this.bouncer.body);
+  this.scene.add(this.bouncer.head);
 
   //Renders the scene
   this.renderer = new THREE.WebGLRenderer({antialias: true});
@@ -55,6 +60,7 @@ Game.prototype.render = function(t) {
   this.backWall.updateTime(t);
   this.leftWall.updateTime(t);
   this.rightWall.updateTime(t);
+  this.bouncer.updateTime(t);
   this.camera.lookAt(this.scene.position);
   this.renderer.render(this.scene, this.camera);
 };
