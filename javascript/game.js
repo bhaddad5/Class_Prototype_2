@@ -9,6 +9,9 @@ var Game = function() {
  * Initialize game state
  */
 Game.prototype.init = function() {
+
+  this.song = $('#song')[0];
+  this.song.play();
   
   //Creates the scene
   this.scene = new THREE.Scene();
