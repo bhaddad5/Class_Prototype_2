@@ -13,6 +13,6 @@ var Bouncer = function() {
 };
 
 Bouncer.prototype.updateTime = function(t){
-  this.body.translateY(Math.sin(t * 10) * 15);
-  this.head.translateY(Math.sin(t * 10) * 15);
+  this.body.translateY(Math.sin(t * 13.5) * 15);
+  this.head.translateY(Math.sin(t * 13.5) * 15);
 };
