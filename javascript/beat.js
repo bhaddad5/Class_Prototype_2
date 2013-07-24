@@ -25,8 +25,8 @@ Beat.prototype.updateBouncer = function(obj , t){
   this.uBeatTime = t * this.bpm / 60;
   this.uBeat = 1.0 - Math.abs(Math.sin(this.uBeatTime * 3.14159));
   
-  obj.body.translateY(Math.sin(this.uBeatTime*6) * -10);
-  obj.head.translateY(Math.sin(this.uBeatTime*6) * -10);
+  obj.body.translateY((this.uBeat - 0.365) * -20);
+  obj.head.translateY((this.uBeat - 0.365) * -20);
 }
 
 Beat.prototype.checkBeat = function(t){
@@ -43,7 +43,7 @@ Beat.prototype.checkBeat = function(t){
   console.log(this.uPlayer);
   
   
-  if(this.uPlayer>=-.2 && this.uPlayer<=.2) {
+  if(this.uPlayer>=-.4 && this.uPlayer<=.4) {
     return true;
   }
   else return false;

@@ -7,8 +7,10 @@ var Bouncer = function() {
 	this.body = new THREE.Mesh(this.geometryBody, this.material);
 	this.head = new THREE.Mesh(this.geometryHead, this.material);
 	
-	this.body.translateY(115);
-	this.head.translateY(180);
+	this.body.translateY(65);
+	this.head.translateY(130);
+	//this.body.translateY(115);
+	//this.head.translateY(180);
 
 };
 
