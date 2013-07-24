@@ -21,6 +21,8 @@ Beat.prototype.updateBouncer = function(obj , t){
   this.uBeatTime = t * this.bpm / 60;
   this.uBeat = 1.0 - Math.abs(Math.sin(this.uBeatTime * 3.14159));
   
-  obj.body.translateY(Math.sin(this.uBeatTime*3) * 15);
-  obj.head.translateY(Math.sin(this.uBeatTime*3) * 15);
+  obj.body.translateY(Math.sin(this.uBeatTime*6) * 15);
+  obj.head.translateY(Math.sin(this.uBeatTime*6) * 15);
+  
+  console.log(this.uBeatTime);
 }
