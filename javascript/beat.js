@@ -16,3 +16,11 @@ Beat.prototype.updateTime = function(obj , t){
   obj.myMaterial.uniforms['uBeat'].value = this.uBeat;
   obj.myMaterial.uniforms['uBeatTime'].value = this.uBeatTime;
 };
+
+Beat.prototype.updateBouncer = function(obj , t){
+  this.uBeatTime = t * this.bpm / 60;
+  this.uBeat = 1.0 - Math.abs(Math.sin(this.uBeatTime * 3.14159));
+  
+  obj.body.translateY(Math.sin(this.uBeatTime*3) * 15);
+  obj.head.translateY(Math.sin(this.uBeatTime*3) * 15);
+}

@@ -120,7 +120,7 @@ Game.prototype.render = function(t) {
   this.beat.updateTime(this.rightWall, t);
   this.beat.updateTime(this.leftSpeaker, t);
   this.beat.updateTime(this.rightSpeaker, t);
-  this.bouncer.updateTime(t);
+  this.beat.updateBouncer(this.bouncer, t);
   this.camera.lookAt(this.scene.position);
   this.renderer.render(this.scene, this.camera);
 };
