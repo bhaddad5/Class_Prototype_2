@@ -3,6 +3,8 @@
 #define DENSITY (2.0)
 
 uniform float uTime;
+uniform float uBeat;
+uniform float uBeatTime;
 uniform float timeOrig; // milliseconds since 1970
 varying vec2 vUv;
 
