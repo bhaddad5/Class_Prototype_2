@@ -33,7 +33,7 @@ Game.prototype.init = function() {
   this.camera.position.z = 500;
   
   //Creates the beat  
-  this.beat = new Beat(75.75);
+  this.beat = new Beat(130);
   this.scene.add(this.beat.text.textMesh);
 
   //Creates the stage  
@@ -90,9 +90,11 @@ Game.prototype.handleInput = function(t) {
   //This detects that the key has been pressed
   if(keyboard.pressed("space") && keyDown == false) {
 	keyDown = true;
-	this.scene.remove(this.beat.text.textMesh);
-	this.beat.updateText(t);
-    this.scene.add(this.beat.text.textMesh);
+	if(this.beat.checkBeat(t)) {
+	  this.scene.remove(this.beat.text.textMesh);
+	  this.beat.updateText(t);
+      this.scene.add(this.beat.text.textMesh);
+	}
   }
   
   //This detects that the key has no longer been pressed
