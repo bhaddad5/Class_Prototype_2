@@ -8,6 +8,10 @@ var Beat = function(b) {
 };
 
 Beat.prototype.updateTime = function(obj , t){
+  this.uBeatTime = t * this.bpm / 60;
+  
+  this.uBeat = 1.0 - Math.abs(Math.sin(this.uBeatTime * 3.14159));
+  
   obj.myMaterial.uniforms['uTime'].value = t;
   obj.myMaterial.uniforms['uBeat'].value = this.uBeat;
   obj.myMaterial.uniforms['uBeatTime'].value = this.uBeatTime;

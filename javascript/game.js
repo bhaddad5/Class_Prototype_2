@@ -36,7 +36,7 @@ Game.prototype.init = function() {
   this.camera.position.z = 500;
   
   //Creates the beat  
-  this.beat = new Beat(50);
+  this.beat = new Beat(151.5);
 
   //Creates the stage  
   this.stage = new Stage();
