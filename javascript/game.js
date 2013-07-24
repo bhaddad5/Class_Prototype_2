@@ -16,9 +16,6 @@ var keyboard = new THREEx.KeyboardState();
 //This tracks whether the spacebar is down
 var keyDown = false;
 
-//This tracks the number of beats hit
-var beatsHit = 0;
-
 /**
  * Initialize game state
  */
@@ -37,6 +34,7 @@ Game.prototype.init = function() {
   
   //Creates the beat  
   this.beat = new Beat(75.75);
+  this.scene.add(this.beat.text.textMesh);
 
   //Creates the stage  
   this.stage = new Stage();
@@ -70,10 +68,6 @@ Game.prototype.init = function() {
   this.bouncer = new Bouncer();
   this.scene.add(this.bouncer.body);
   this.scene.add(this.bouncer.head);
-  
-  //Creates the text
-  this.text = new Text(beatsHit);
-  this.scene.add(this.text.textMesh);
 
   //Renders the scene
   this.renderer = new THREE.WebGLRenderer({antialias: true});
@@ -91,15 +85,14 @@ Game.prototype.init = function() {
 /**
  * Handles keyboard input
  */
-Game.prototype.handleInput = function() {
+Game.prototype.handleInput = function(t) {
 
   //This detects that the key has been pressed
   if(keyboard.pressed("space") && keyDown == false) {
-    beatsHit++;
 	keyDown = true;
-	this.scene.remove(this.text.textMesh);
-	this.text = new Text(beatsHit);
-    this.scene.add(this.text.textMesh);
+	this.scene.remove(this.beat.text.textMesh);
+	this.beat.updateText(t);
+    this.scene.add(this.beat.text.textMesh);
   }
   
   //This detects that the key has no longer been pressed
@@ -133,7 +126,7 @@ Game.prototype.start = function() {
   var time0 = new Date().getTime(); // milliseconds since 1970
   var loop = function() {
     var time = new Date().getTime();
-	that.handleInput();
+	that.handleInput((time - time0) * 0.001);
     that.render((time - time0) * 0.001);
     requestAnimationFrame(loop, that.renderer.domElement);
   };

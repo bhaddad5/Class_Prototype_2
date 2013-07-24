@@ -5,7 +5,11 @@ var Beat = function(b) {
   this.uBeat = 0;
   this.uBeatTime = 0;
   this.uPlayer = 0;
-
+  
+  this.beatsHit = 0;
+  
+  //Creates the text
+  this.text = new Text(this.beatsHit);
 };
 
 Beat.prototype.updateTime = function(obj , t){
@@ -24,4 +28,9 @@ Beat.prototype.updateBouncer = function(obj , t){
   
   obj.body.translateY(Math.sin(this.uBeatTime*6) * -10);
   obj.head.translateY(Math.sin(this.uBeatTime*6) * -10);
+}
+
+Beat.prototype.updateText = function(t){
+  this.beatsHit++;
+  this.text = new Text(this.beatsHit);
 }
