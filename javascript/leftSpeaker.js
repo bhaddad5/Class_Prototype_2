@@ -24,7 +24,3 @@ var LeftSpeaker = function() {
 
 
 };
-
-LeftSpeaker.prototype.updateTime = function(t){
-  this.myMaterial.uniforms['uTime'].value = t;
-};
