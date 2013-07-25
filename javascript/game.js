@@ -64,10 +64,9 @@ Game.prototype.init = function() {
   this.background = new Background();
   this.scene.add(this.background.myMesh);
   
-  //Creates the bouncer
-  this.bouncer = new Bouncer();
-  this.scene.add(this.bouncer.body);
-  this.scene.add(this.bouncer.head);
+  //Creates the right bouncer
+  this.bouncerRight = new Bouncer1();
+  this.scene.add(this.bouncerRight.body);
   
   //Creates the RoboBouncer
   var jsonLoader = new THREE.JSONLoader();
@@ -123,7 +122,7 @@ Game.prototype.render = function(t) {
   this.beat.updateTime(this.rightWall, t);
   this.beat.updateTime(this.leftSpeaker, t);
   this.beat.updateTime(this.rightSpeaker, t);
-  this.beat.updateBouncer(this.bouncer, t);
+  this.beat.updateBouncer(this.bouncerRight, t);
   this.camera.lookAt(this.scene.position);
   this.renderer.render(this.scene, this.camera);
 };

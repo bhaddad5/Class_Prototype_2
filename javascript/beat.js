@@ -26,7 +26,6 @@ Beat.prototype.updateBouncer = function(obj , t){
   this.uBeat = 1.0 - Math.abs(Math.sin(this.uBeatTime * 3.14159));
   
   obj.body.translateY((this.uBeat - 0.365) * -20);
-  obj.head.translateY((this.uBeat - 0.365) * -20);
 }
 
 Beat.prototype.checkBeat = function(t){

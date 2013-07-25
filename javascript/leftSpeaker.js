@@ -8,7 +8,7 @@ var LeftSpeaker = function() {
       'uTime': { type: 'f', value: 0.0 },
 	  'uBeat': { type: 'f', value: 0.0 },
 	  'uBeatTime': { type: 'f', value: 0.0 },
-    },
+	},
     vertexShader: vertexShaderText,
     fragmentShader: fragmentShaderText
   });
