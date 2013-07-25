@@ -68,7 +68,15 @@ Game.prototype.init = function() {
   this.bouncer = new Bouncer();
   this.scene.add(this.bouncer.body);
   this.scene.add(this.bouncer.head);
-
+  
+  //Creates the RoboBouncer
+  var jsonLoader = new THREE.JSONLoader();
+  var that = this;
+  jsonLoader.load('robot.js', function(geometry) {
+	this.roboBouncer = new RoboBouncer(geometry);
+	that.scene.add(this.roboBouncer.figure);
+  });
+  
   //Renders the scene
   this.renderer = new THREE.WebGLRenderer({antialias: true});
   this.renderer.setSize(800, 600);

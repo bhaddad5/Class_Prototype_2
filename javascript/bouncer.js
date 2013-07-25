@@ -9,8 +9,5 @@ var Bouncer = function() {
 	
 	this.body.translateY(65);
 	this.head.translateY(130);
-	//this.body.translateY(115);
-	//this.head.translateY(180);
-
 };
 

@@ -3,7 +3,7 @@ var Text = function(beats) {
   //This adds the text.  I borrowed the template from Imari Heikkinen
   this.c = document.createElement('canvas');
   this.c.getContext('2d').font = '80px Arial';
-  this.c.getContext('2d').fillText(beats + '/344', 2, 100);
+  this.c.getContext('2d').fillText(beats + '/65', 2, 100);
   
   this.tex = new THREE.Texture(this.c);
   this.tex.needsUpdate = true;
@@ -18,11 +18,11 @@ var Text = function(beats) {
   this.textMesh.doubleSided = true;
   
   this.textMesh.translateY(-290);
-  this.textMesh.translateX(100);
+  this.textMesh.translateX(80);
 
 };
 
 Text.prototype.updateBeats = function(beats){
   console.log("update");
-  this.c.getContext('2d').fillText(0 + '/344', 2, 100);
+  this.c.getContext('2d').fillText(0 + '/65', 2, 100);
 };
