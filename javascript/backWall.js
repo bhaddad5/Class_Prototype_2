@@ -22,7 +22,3 @@ var BackWall = function() {
 
 
 };
-
-BackWall.prototype.updateTime = function(t){
-  this.myMaterial.uniforms['uTime'].value = t;
-};

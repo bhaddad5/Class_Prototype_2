@@ -19,7 +19,3 @@ var Background = function() {
   this.myMesh.translateZ(-500);
 
 };
-
-Background.prototype.updateTime = function(t){
-  this.myMaterial.uniforms['uTime'].value = t;
-};

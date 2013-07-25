@@ -25,7 +25,3 @@ var LeftWall = function() {
 
 
 };
-
-LeftWall.prototype.updateTime = function(t){
-  this.myMaterial.uniforms['uTime'].value = t;
-};

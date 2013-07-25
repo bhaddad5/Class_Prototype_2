@@ -46,9 +46,6 @@ Beat.prototype.checkBeat = function(t){
     this.uPlayer = (this.uBeat * 2) - 2;
   }
   
-  console.log(this.uPlayer);
-  
-  
   if(this.uPlayer>=-.4 && this.uPlayer<=.4) {
     return true;
   }

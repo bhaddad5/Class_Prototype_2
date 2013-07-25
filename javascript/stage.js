@@ -20,7 +20,3 @@ var Stage = function() {
 
 
 };
-
-Stage.prototype.updateTime = function(t){
-  this.myMaterial.uniforms['uTime'].value = t;
-};
