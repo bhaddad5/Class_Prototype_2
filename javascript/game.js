@@ -21,8 +21,10 @@ var keyDown = false;
  */
 Game.prototype.init = function() {
 
-  this.song = $('#song')[0];
-  this.song.play();
+  //this.song = $('#song')[0];
+  //this.song.play();
+  this.player = new Player('#song');
+  this.player.song.play()
   
   //Creates the scene
   this.scene = new THREE.Scene();
