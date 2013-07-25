@@ -33,7 +33,7 @@ Game.prototype.init = function() {
   this.camera.position.z = 500;
   
   //Creates the beat  
-  this.beat = new Beat(130);
+  this.beat = new Beat(128);
   this.scene.add(this.beat.text.textMesh);
 
   //Creates the stage  
