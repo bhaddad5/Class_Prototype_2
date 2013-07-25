@@ -7,9 +7,10 @@ var Beat = function(b) {
   this.uPlayer = 0;
   
   this.beatsHit = 0;
+  this.beatsTried = 0;
   
   //Creates the text
-  this.text = new Text(this.beatsHit);
+  this.text = new Text(this.beatsHit, this.beatsTried);
 };
 
 Beat.prototype.updateTime = function(obj , t){
@@ -36,6 +37,8 @@ Beat.prototype.checkBeat = function(t){
   this.uBeatTime = t * this.bpm / 60;
   this.uBeat = 1.0 - Math.abs(Math.sin(this.uBeatTime * 3.14159));
   
+  this.beatsTried++;
+  
   if(this.uBeat<.5) {
     this.uPlayer = this.uBeat * 2;
   }
@@ -52,7 +55,10 @@ Beat.prototype.checkBeat = function(t){
   else return false;
 }
 
-Beat.prototype.updateText = function(t){
+Beat.prototype.updateHit = function(){
   this.beatsHit++;
-  this.text = new Text(this.beatsHit);
+}
+
+Beat.prototype.updateText = function(t){
+  this.text = new Text(this.beatsHit, this.beatsTried);
 }

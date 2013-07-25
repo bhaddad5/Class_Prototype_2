@@ -102,10 +102,11 @@ Game.prototype.handleInput = function(t) {
   if(keyboard.pressed("space") && keyDown == false) {
 	keyDown = true;
 	if(this.beat.checkBeat(t)) {
-	  this.scene.remove(this.beat.text.textMesh);
-	  this.beat.updateText(t);
-      this.scene.add(this.beat.text.textMesh);
+	  this.beat.updateHit();
 	}
+	this.scene.remove(this.beat.text.textMesh);
+	this.beat.updateText(t);
+    this.scene.add(this.beat.text.textMesh);
   }
   
   //This detects that the key has no longer been pressed
